@@ -13,7 +13,6 @@ const getAll = async (req, res, next) => {
 
 const getById = async (req, res, next) => {
   const { id } = req.params;
-  //   console.log(id);
   //   const result = await Contact.findOne({_id: id});
   const result = await Contact.findById(id);
 
