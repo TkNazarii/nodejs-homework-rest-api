@@ -2,16 +2,13 @@ const { exit } = require('process');
 const app = require('./app')
 
 const mongoose = require('mongoose');
-// const { DB_HOST } = require('./config')
 
-// global object with pasword
 const { DB_HOST } = process.env
 
 mongoose.connect(DB_HOST)
   .then(() => {
   app.listen(3000, () => {
-	console.log("Server running: 3000")
-	console.log("Database connection successful")
+	console.log("Server running: http://localhost:3000")
   }) 
 })
   .catch(error => {
@@ -19,8 +16,4 @@ mongoose.connect(DB_HOST)
 	process(exit(1))
 });
 
-
-// app.listen(3000, () => {
-//   console.log("Server running: 3000")
-// })
 

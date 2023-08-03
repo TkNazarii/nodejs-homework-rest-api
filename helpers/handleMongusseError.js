@@ -1,8 +1,8 @@
-const handleMongusseError = (error, data, next) => {
-	// console.log(error);
-	error.status = 400;
-	next()
+const handleMongooseError = (error, data, next) => {
+  const { name, code } = error;
+  const status = name === "MongoServerError" && code === 11000 ? 409 : 400;
+  error.status = 400;
+  next();
+};
 
-}
-
-module.exports = handleMongusseError
+module.exports = handleMongooseError;
