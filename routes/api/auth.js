@@ -7,6 +7,11 @@ const ctrl = require('../../controllers/auth')
 const router = express.Router()
 // sign up
 router.post('/register', validateBody(schemas.registerSchema), ctrl.register)
+
+router.get("/verify/:verificationCode", ctrl.verifyEmail)
+
+router.post("/verify/", validateBody(schemas.emailSchema), ctrl.resendVerifyEmail)
+
 // sign in
 router.post('/login', validateBody(schemas.loginSchema), ctrl.login)
 
